@@ -569,6 +569,23 @@ Basic steps for deploying applications to Gear VR are outlined, including signin
 ◦
 Developing for Gear VR is noted as potentially tricky due to Android setup, Unity complexities, and deployment quirks, but Gear VR is seen as a major step toward consumer-grade, mass-market virtual reality.
 Next, here's a breakdown of Chapter 5:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Chapter 5: WebVR: Browser-Based Virtual Reality in HTML5
 This chapter explores WebVR, which allows creating virtual reality experiences that run directly in web browsers using HTML5.
 •
