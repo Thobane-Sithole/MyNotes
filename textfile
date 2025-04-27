@@ -455,3 +455,189 @@ Static Viewing Areas: Allow users to explore exhibits from fixed points rather t
 Guided Tours: Provide pre-recorded or guided tours with smooth, controlled camera movements.
 
 Comfortable Seating: Encourage users to sit while using VR to reduce disorientation.
+
+
+
+**************************************************************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 4: Going Mobile: Developing for Gear VR
+This chapter focuses on developing applications for the Samsung Gear VR, which is described as the flagship mobile VR device on the market.
+•
+Hardware Overview:
+◦
+Gear VR is a partnership between Oculus and Samsung.
+◦
+It's a custom headset that houses a smartphone with a high-resolution display.
+◦
+Initially released as an "Innovator Edition," it works with specific phones like the Samsung Galaxy Note 4 and S6 lines. The price, including a new phone, could be around US$800 to US$1,000 at the time of writing, which is considered a pricey option.
+◦
+It features high-resolution graphics, thanks to phone displays like the Note 4's 2560 x 1440 pixels (1280 x 1440 per eye).
+◦
+The headset includes a custom IMU (Inertial Measurement Unit) based on Oculus technology that tracks motion much faster and with less latency than the phone's built-in IMU.
+◦
+Input controls are built into the headset, including an eye adjustment wheel, volume control, headphone jack, and a touchpad for touch input.
+•
+Oculus Home:
+◦
+Gear VR features an innovative user interface called Oculus Home for discovering, launching, and installing mobile VR applications.
+◦
+Oculus Home provides a fully immersive interface, allowing users to browse and launch apps without removing the headset. This provides an uninterrupted VR experience, including seeing system alerts from the phone while inside VR.
+•
+Development:
+◦
+Developing for Gear VR's Android-based operating system requires the Oculus Mobile SDK.
+◦
+This SDK must be used alongside the standard Android SDK. Setting up the Android SDK and enabling USB debugging on the target device are necessary steps.
+◦
+The chapter focuses on using the Unity3D game engine for development, similar to desktop Oculus Rift development.
+◦
+While Unity is recommended for its features, particularly for games and VR, native Android development is also possible using libraries like GearVRf, an open source Java framework created by Samsung.
+◦
+Using Unity involves importing the Unity Integration package from the Oculus Mobile SDK.
+◦
+The chapter provides steps for building and running a sample Unity application (the Cubes scene) on a Gear VR device. This includes setting up the Build Settings in Unity for the Android platform and adding the scene to the build.
+◦
+Building creates an Android package (.apk) file that is deployed to the phone. Once the phone is placed in the Gear VR headset, the application runs, providing stereo rendering and head tracking.
+◦
+Key VR concepts from desktop development, like stereo rendering and head tracking, translate directly to mobile.
+◦
+The OVRCameraRig prefab from the Unity Integration package provides the necessary stereo rendering and head tracking support. It contains child objects representing camera anchors for the left and right eyes.
+◦
+The OVRManager script is the main interface to the Oculus Mobile SDK in Unity, handling communication with the native SDK and updating camera properties like field of view and aspect ratio for each eye. For Gear VR, the main update logic runs in the Update() method of the OVRCameraRig script.
+◦
+The chapter also covers handling touchpad input using another SDK prefab, OVRPlayerController, which uses touchpad events for camera movement.
+◦
+Implementing gaze tracking for selecting objects is discussed as another important VR input technique. An example using a crosshair is mentioned, combining gaze with touchpad input for selection.
+◦
+Basic steps for deploying applications to Gear VR are outlined, including signing the application with a valid Android signature file and submitting it to the Oculus Store.
+◦
+Developing for Gear VR is noted as potentially tricky due to Android setup, Unity complexities, and deployment quirks, but Gear VR is seen as a major step toward consumer-grade, mass-market virtual reality.
+Next, here's a breakdown of Chapter 5:
+Chapter 5: WebVR: Browser-Based Virtual Reality in HTML5
+This chapter explores WebVR, which allows creating virtual reality experiences that run directly in web browsers using HTML5.
+•
+Motivation for WebVR:
+◦
+Building VR experiences as web applications offers several advantages over native applications:
+▪
+Instant access: No app download or installation required; experiences can be launched via a URL or hyperlink.
+▪
+Easy integration of web data: Simple access to information from sites like Wikipedia, YouTube, social networks, and thousands of open web services via APIs.
+▪
+Cross-platform: HTML5 runs on desktop and mobile devices, and HTML5 code can be delivered via browsers or embedded in apps.
+▪
+Faster, cheaper development: Uses open source tools (mostly free) and arguably the easiest cross-platform system (HTML5, JavaScript).
+•
+The Story of WebVR:
+◦
+WebVR originated from collaboration starting in spring 2014 between Mozilla engineers Vlad Vukićević and Josh Carpenter, and Google Chrome engineer Brandon Jones.
+◦
+Their goal was to add Oculus Rift support to Firefox and Chrome with a native browser implementation to avoid performance issues from older plugin-based methods.
+◦
+They quickly collaborated to create a common API so developers could write code once and run it in both browsers, marking the birth of WebVR. This collaboration is highlighted as a testament to the power of web standards and open community development.
+•
+WebVR API Basics:
+◦
+The WebVR API allows developers to access VR device capabilities within the browser. Note that the API discussed here is distinct from the methods used for Google Cardboard mobile browser apps, which are covered in Chapter 6.
+◦
+A key step is querying for connected VR devices using functions like navigator.getVRDevices() (with cross-browser support for navigator.mozGetVRDevices). This function uses JavaScript promises.
+◦
+The API identifies device types like HMDVRDevice (for the display) and PositionSensorVRDevice (for head tracking). These are saved for later use.
+◦
+Developers can check if the WebVR API is available by testing if the query function exists.
+◦
+The API supports setting up VR Fullscreen Mode on an HTML5 canvas element, often using browser-prefixed methods like mozRequestFullScreen() or webkitRequestFullscreen(). The HMD device is passed to this method to indicate VR fullscreen is desired.
+•
+Creating a WebVR Application Example:
+◦
+Building a WebVR application involves combining HTML5, JavaScript, and WebGL, often using a library like Three.js. While the web offers many open source tools, they may not be as polished as native development systems like Unity or Unreal.
+◦
+A simple example application demonstrates rendering a cube texture-mapped with the WebVR logo in stereo, responsive to headset movement. It includes a button to enter VR fullscreen mode.
+◦
+Running local web examples requires a web server.
+◦
+The application's structure involves an HTML page with elements for the button and a container for the WebGL canvas.
+◦
+JavaScript libraries, including Three.js and its WebVR extensions like THREE.VREffect (for stereo rendering/fullscreen) and THREE.VRControls (for camera control based on head tracking), are included via script tags. These extensions were developed by the Mozilla VR team.
+◦
+The main JavaScript program initializes Three.js, sets up VR rendering, creates the 3D scene content, sets up VR camera controls, and runs a run loop.
+◦
+The initVREffect() function configures stereo rendering and fullscreen handling using the THREE.VREffect object.
+◦
+The initScene() function creates the 3D objects, such as the cube, using Three.js geometry and materials.
+◦
+The run loop is the heart of the application, using the browser's requestAnimationFrame() function to drive continuous animation and rendering.
+◦
+Within the run loop, the scene is rendered for each eye using effect.render(), camera controls are updated based on device orientation using controls.update(), and scene elements (like the cube) can be animated.
+•
+Tools and Techniques:
+◦
+Besides Three.js, other WebGL engines and development tools are available for creating WebVR, although they are still maturing.
+◦
+Game engines like Unity3D and Unreal have added WebGL export capabilities. This export uses a technology called Emscripten to cross-compile engine code to asm.js (low-level JavaScript), providing high frame rates but potentially resulting in very large initial download sizes.
+◦
+Other open source JavaScript 3D libraries like BabylonJS (which has a specific WebVR camera object) and GLAM (a declarative language for 3D web content) are also available.
+◦
+Mozilla's MozVR showcase site features demos and research related to WebVR.
+•
+Conclusion:
+◦
+WebVR is described as new and experimental but holds tremendous potential due to open collaboration and leveraging existing web infrastructure.
+◦
+It could potentially change not only VR development but also the future of web browsing.
