@@ -658,3 +658,106 @@ Conclusion:
 WebVR is described as new and experimental but holds tremendous potential due to open collaboration and leveraging existing web infrastructure.
 ◦
 It could potentially change not only VR development but also the future of web browsing.
+
+
+
+
+
+
+
+
+
+
+
+
+==============================================================================================================================================================================================================================
+==============================================================================================================================================================================================================================
+==============================================================================================================================================================================================================================
+==============================================================================================================================================================================================================================
+
+
+
+
+Briefing Document: Learning Virtual Reality
+Source: Excerpts from "Learning Virtual Reality: Developing Immersive Experiences and Applications for Desktop, Web, and Mobile.pdf"
+
+Date: October 26, 2023
+
+Subject: Review of Virtual Reality Concepts, Hardware, and Development Approaches
+
+Overview:
+
+These excerpts from "Learning Virtual Reality" provide a foundational understanding of virtual reality (VR), outlining its core concepts, key hardware components, and various development platforms and techniques. The document highlights the goal of VR as creating a sense of total immersion and being "present" in a virtual world by tricking the human brain, primarily through visual and motion cues. It explores the evolution and characteristics of prominent consumer VR headsets, including the Oculus Rift, Samsung Gear VR, and Google Cardboard, and delves into the fundamental principles of 3D graphics and the process of developing VR applications using native SDKs, game engines like Unity3D, and web technologies such as WebVR.
+
+Key Themes and Important Ideas/Facts:
+
+1. The Nature and Goal of Virtual Reality:
+
+The primary goal of virtual reality is to create a feeling of total immersion, of "being somewhere else, experiencing something else entirely."
+This illusion is achieved by "tricking the human brain-- in particular the visual cortex and parts of the brain that perceive motion."
+Key technologies involved include Stereoscopic Displays, Motion Tracking Hardware, Input Devices, and Computing Platforms.
+2. Essential Hardware Components for VR:
+
+Stereoscopic Displays: Also known as head-mounted displays (HMDs), these are the "main ingredient in virtual reality." They create a persistent 3D visual representation by generating a separate, slightly offset image for each eye to simulate parallax and depth.
+Motion Tracking Hardware: This hardware tracks the user's head and potentially body movements to update the virtual scene accordingly, enhancing the sense of presence.
+Input Devices: Allow users to interact with the virtual environment.
+Computing Platforms: Range from modern desktop computers and high-powered laptops (for desktop VR like the Oculus Rift) to smartphones (for mobile VR like Gear VR and Cardboard). The demand for high-quality VR experiences may lead to dedicated VR computing devices in the future.
+3. Prominent Consumer VR Headsets:
+
+Oculus Rift: Considered the "standard-bearer for virtual reality" and the "Gold Standard," the Oculus Rift pioneered affordable consumer-grade VR with a stereoscopic display and built-in head motion tracking. Its evolution through developer kits (DK1, DK2, Crescent Bay) shows continuous improvement in resolution, tracking, performance, and comfort.
+"The Oculus Rift is a stereoscopic display with built-in head motion tracking sensors. It straps to the head, allowing hands-free operation."
+The goal with stereoscopic rendering is to "generate a separate image for each eye, one slightly offset from the other, to simulate parallax." Barrel distortion is also used to "better emulate the spherical shape of the eye."
+Trying the "Crescent Bay" demo highlighted the "major leap in capability over the DK2," providing "the difference between experiencing the promise of virtual reality and actually experiencing it. The level of realism and feeling of presence while in the demos is unmatched."
+Requires a powerful computer, can be bulky and tethered.
+Samsung Gear VR: A "Deluxe, Portable Virtual Reality" solution developed in partnership with Oculus.
+"Anticipating these issues, Oculus has also produced a much lighter-weight mobile solution."
+Combines Oculus optics and new head tracking technology with a custom headset that houses a high-resolution mobile phone (initially Samsung Galaxy Note 4 and S6).
+Offers a "better experience than DK2, with a much nicer form factor and amazing display resolution."
+While "a fantastic consumer VR headset," the "price is still prohibitive" at a high total cost including the phone.
+Google Cardboard: A "Low-Cost VR for Smart Phones" providing "modest but fun VR at a fraction of the cost of the high-end headsets."
+An affordable option for the "average consumer, and for developers who aren’t ready to make a big financial commitment."
+Uses simple stereo rendering and the phone's built-in accelerometer for head tracking.
+Various "drop-in" headsets are available from different manufacturers.
+4. Developing for Virtual Reality:
+
+VR application development can be done using:
+Native Software Development Kits (SDKs): Device drivers and software libraries specific to the platform and operating system (e.g., Oculus SDK for PC).
+Game Engines and Frameworks: Provide pre-built tools and features for 3D graphics, physics, and game behaviors, significantly streamlining development (e.g., Unity3D, Unreal Engine, CryENGINE). Most developers use engines.
+Modern Web Browsers: With technologies like WebGL and the WebVR API, developers can create VR experiences that run in a browser.
+3D Graphics Basics: Essential for VR development.
+3D Computer Graphics: Use a "three-dimensional representation of geometric data" to render 2D images. Key for interactive applications is displaying images "in real-time."
+Meshes, Polygons, and Vertices: 3D objects are typically represented by meshes composed of polygons (triangles and quads) defined by vertices with x, y, z coordinates.
+Materials, Textures, and Lights: Define the surface properties and illumination of 3D objects.
+Transforms and Matrices: Operations (scaling, rotation, translation) that move and orient meshes without directly changing vertex values, represented by transformation matrices.
+Cameras, Perspective, Viewports, and Projections: Define the user's point of view and how the 3D scene is rendered onto a 2D surface.
+Stereoscopic Rendering: Requires rendering the scene twice, once for each eye, with slight offsets to simulate interpupillary distance. This often involves a main camera for scene logic and two rendering cameras for the left and right eyes, rendering to separate viewports with optical distortion parameters applied.
+Developing with the Oculus SDK for PC:Involves installing the Oculus Runtime and SDK, and potentially an engine integration package like the one for Unity3D.
+Demonstrates setting up a Unity project and building a simple VR application.
+Highlights the OVRCameraRig object in Unity, which manages the left and right eye cameras for stereoscopic rendering, updated in the LateUpdate() method.
+The OVRManager script is the main interface to the Oculus SDK, providing rendering parameters for each eye.
+Developing for Gear VR:Requires the Oculus Mobile SDK, Android SDK setup, generating an Oculus Signature File, and setting up USB debugging on the device.
+Development can be done using Unity3D with the Oculus Mobile SDK integration package.
+Building and running a Gear VR application involves creating an Android package file (.apk) and deploying it to the phone.
+For mobile VR, Unity's Update() method is used for simulation loop updates.
+Input can include touchpad presses and gaze tracking to interact with objects.
+WebVR: Enables "Browser-Based Virtual Reality in HTML5."
+WebVR is a "set of extensions built into the two most popular browsers" (Firefox and Chrome, in experimental builds) with the goal of becoming a W3C standard.
+Key WebVR API features include querying for VR devices (getVRDevices()), setting up VR fullscreen mode (requestFullScreen()), and tracking the VR device's position and orientation (getState()).
+Development often utilizes WebGL for 3D rendering and JavaScript libraries like Three.js, which has specific extensions for WebVR.
+Other open-source libraries like BabylonJS and declarative languages like GLAM and SceneVR are also available for WebVR development.
+WebVR has the "tremendous potential" to "not only change the playing field for virtual reality development; it could transform the face of web browsing forever."
+Developing with Google Cardboard:Offers multiple development paths: native Android SDK (Java), Unity3D (C#), and WebVR (JavaScript/HTML5).
+Using the native Android SDK involves implementing interfaces like CardboardView.StereoRenderer and handling rendering in methods like onNewFrame() (for per-frame updates) and onDrawEye() (for rendering each eye).
+Gaze tracking can be used for object selection by calculating the angle between the eye view vector and the object's location.
+Cardboard development in Unity3D utilizes a specific Google Cardboard SDK integration package.
+Cardboard VR in the browser leverages WebGL and libraries like Three.js and GLAM.
+5. The Importance of Game Engines (Unity3D):
+
+Game engines like Unity3D provide a significant advantage for VR development.
+They offer powerful features, are extensible, have a WYSIWYG editor for productivity, support a rich ecosystem (Asset Store), and are "Ready for VR" with specific SDK integrations.
+Using an existing engine allows developers to "spend your time working on the application itself and just use an existing engine."
+Conclusion:
+
+The provided excerpts lay out a comprehensive introduction to the world of virtual reality development. They effectively define VR's core concept of immersion, detail the crucial hardware components, and present the landscape of available consumer headsets, highlighting their strengths and limitations. Crucially, the document outlines the various development approaches, from native SDKs to powerful game engines and the emerging potential of WebVR, providing a strong foundation for understanding how to build immersive experiences across different platforms. The emphasis on both high-end solutions like the Oculus Rift and the accessible option of Google Cardboard demonstrates the diverse entry points into VR development.
+
+
